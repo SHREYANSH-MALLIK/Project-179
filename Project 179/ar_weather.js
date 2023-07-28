@@ -1,0 +1,22 @@
+$(document).ready(function () {
+    getCoordinates();
+})
+
+let coordinates = {}
+function getCoordinates(){
+    let searchParams = new URLSearchParams(window.location.search)
+    if(searchParams.has("source") && searchParams.has("destination")){
+
+        let source = searchParams.get("source")
+        let destination = searchParams.get("destination")
+        coordinates.source_lat = source.split(";")[0]
+        coordinates.source_lon = source.split(";")[1]
+        coordinates.destination_lat = source.split(";")[0]
+        coordinates.destination_lon = source.split(";")[1]
+        console.log(coordinates)
+
+    } else {
+        alert("coordinates not selected")
+        window.history.back()
+    }
+}
